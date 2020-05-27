@@ -1,11 +1,11 @@
-/* Переключимся на нашу созданную БД */
+/* Switch to DB */
 
 USE InsuranceDB
 
-/* Запросы к БД */
+/* Queries */
 
 /*
- * 1. Клиенты, которые имеют договоры со всеми возможными состояниями.
+ * 1. Clients that have contracts with all available statuses
  */
 SELECT Client.*
   FROM Client
@@ -20,8 +20,7 @@ SELECT Client.*
 
 
 /*
- * 2. Действующие договоры на страхование дачи от пожара, сумма выплат 
- *    по которым максимальна.
+ * 2. Valid insurance contracts of a house from fire with maximum insurance amount
  */
 GO
 CREATE VIEW HouseFromFire AS
@@ -42,8 +41,8 @@ SELECT *
 
 
 /*
- * 3. Договоры на страхование жизни, сумма страховых выплат по которым 
- *    не является ни максимальной, ни минимальной.
+ * 3. Insurance contracts of life with non-maximum and non-minimum 
+ *    insuranse amount
  */
 GO
 CREATE VIEW LifeProtect AS
@@ -61,7 +60,7 @@ SELECT *
 
 
 /*
- * 4. Среднее значение страховых выплат по всем действующим договорам.
+ * 4. Average insurance amount between valid contractss
  */
 SELECT AVG(Contract.InsuranceAmount) AS 'AvgInsuranceAmount'
   FROM Contract 
@@ -70,7 +69,7 @@ SELECT AVG(Contract.InsuranceAmount) AS 'AvgInsuranceAmount'
           AND ContractStatus.Status = 'Valid';
 
 /*
- * 5. Страховые агенты, которые вели дела с клиентом с паспортом 2222 654321.
+ * 5. Agents that have had a deal with client with passport 2222 654321.
  */
 SELECT Agent.*
   FROM Agent 

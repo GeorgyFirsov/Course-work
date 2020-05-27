@@ -1,16 +1,15 @@
-/* Создаём базу данных */
+/* Create a DB */
 
 CREATE DATABASE InsuranceDB
 
-/* Переключимся на нашу созданную БД */
+/* Switch to the DB */
 
 USE InsuranceDB
 
-/* Создадим таблички для кодификаторов */
+/* Now let's create codifiers tables */
 
 /* 
- * IDENTITY(1,1) служит для автоматического
- * инкрементирования счетчика 
+ * IDENTITY(1,1) used for autoincrementing counter 
  */
 
 CREATE TABLE AgentPosition (
@@ -39,7 +38,7 @@ CREATE TABLE ContractStatus (
     Status               VARCHAR(25) NOT NULL UNIQUE
 )
 
-/* Теперь создаём основные таблицы */
+/* Main tables */
 
 CREATE TABLE Department (
     DepartmentID         INTEGER     NOT NULL IDENTITY(1,1) PRIMARY KEY,

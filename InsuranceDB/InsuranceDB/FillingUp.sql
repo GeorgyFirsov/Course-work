@@ -1,10 +1,10 @@
-/* Переключимся на нашу созданную БД */
+/* Switch to our DB */
 
 USE InsuranceDB
 
-/* Заполняем базу данных */
+/* Filling DB */
 
-/* Сначала заполним кодификаторы */
+/* Let's fill codifiers */
 
 -- AgentPosition -----------------
 
@@ -51,7 +51,7 @@ INSERT INTO ContractStatus (Status)
             ('Expired');
 
 
-/* Теперь заполним основные таблицы */
+/* Now let's fill main tables */
 
 -- Department --------------------
 
@@ -74,14 +74,14 @@ INSERT INTO Agent (Name, PhoneNumber, PassportId, Rate, NumberOfContracts)
 INSERT INTO EmploymentContract (
     Number, AgentID, Salary, AgentPositionID, DepartmentID, StartDate, /* EndDate, */ Status
     )
-     VALUES (1, 3, 4000, 3, 1, '20140106', 0), /* Расторгнут будет */
+     VALUES (1, 3, 4000, 3, 1, '20140106', 0), /* Will be cancelled */
             (2, 1, 2000, 4, 2, '20160612', 0),
             (3, 2, 3500, 1, 2, '20160205', 0),
             (4, 3, 6000, 2, 1, '20191218', 0),
             (5, 4, 2000, 4, 1, '20171016', 0),
             (6, 5, 4000, 3, 3, '20141124', 0);
 
-/* Расторгнем один из договоров */
+/* Cancel one contract */
 UPDATE EmploymentContract
    SET EndDate = '20191217', Status = 1
  WHERE EmploymentContractID = 1

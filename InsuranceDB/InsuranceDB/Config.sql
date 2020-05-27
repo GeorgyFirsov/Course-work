@@ -1,4 +1,5 @@
 USE InsuranceDB
+
 GO
 sp_configure 'show advanced options', 1
 GO
@@ -14,4 +15,4 @@ EXEC master.dbo.sp_MSset_oledb_prop N'Microsoft.ACE.OLEDB.12.0' ,  N'DynamicPara
 GO
 
 
-select * FROM OPENROWSET('Microsoft.ACE.OLEDB.12.0', 'Excel 12.0;Database=E:\Учеба\Базы данных\Курсач\TablesExcel\TestClient.xls', [Sheet1$])
+SELECT * FROM OPENROWSET('Microsoft.ACE.OLEDB.12.0', 'Excel 12.0;Database=E:\Учеба\Базы данных\Курсач\TablesExcel\TestClient.xls', [Sheet1$])

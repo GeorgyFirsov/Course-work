@@ -1,11 +1,10 @@
-/* Переключимся на нашу созданную БД */
+/* Switch to our DB */
 
 USE InsuranceDB
 
-/* При добавлении нового договора необходимо
- * увеличить счетчик договоров для соответствующих
- * клиента и агента. При удалении же
- * счетчики необходимо уменьшить */
+/* On adding/deleting a contract we need
+ * to increment/decrement counters of 
+ * corresponding agent and client */
 
 DROP TRIGGER IF EXISTS OnContractModify
 
@@ -17,11 +16,11 @@ CREATE TRIGGER OnContractModify
  BEGIN
 	   SET NOCOUNT ON
 
-	   -- Нужны только поля с идентификаторами
+	   -- We need identifiers
 	   DECLARE @IterAgentID  INTEGER
 	   DECLARE @IterClientID INTEGER
 	   
-	   -- Будем итерироваться по всем вставленным записям
+	   -- We'll iterate over all inserted rows
 	   DECLARE InsertIterator CURSOR FOR
 			   SELECT AgentID, ClientID FROM INSERTED
 	   
@@ -29,24 +28,24 @@ CREATE TRIGGER OnContractModify
 	   FETCH NEXT FROM InsertIterator INTO @IterAgentID, @IterClientID
 	   WHILE @@FETCH_STATUS = 0
 	   BEGIN
-			-- Обновим таблицу с агентами - надо увеличить
-			-- количество договоров
+			-- Let's update agents table - we need to
+			-- increment contracts counter
 			UPDATE Agent
 			   SET NumberOfContracts = NumberOfContracts + 1
 			 WHERE AgentID = @IterAgentID
 
-			-- А теперь то же самое, но с клиентом
+			-- Now he same deal with client
 			UPDATE Client
 			   SET NumberOfContracts = NumberOfContracts + 1
 			 WHERE ClientID = @IterClientID
 
-			-- Переходим к следующей записи
+			-- And let's go to the next row
 			FETCH NEXT FROM InsertIterator INTO @IterAgentID, @IterClientID
 	   END
 	   CLOSE InsertIterator
 	   DEALLOCATE InsertIterator
 
-	   -- Проходимся теперь по удаленным записям
+	   -- Iteration over deleted rows
 	   DECLARE DeleteIterator CURSOR FOR
 			   SELECT AgentID, ClientID FROM DELETED
 	   
@@ -54,17 +53,17 @@ CREATE TRIGGER OnContractModify
 	   FETCH NEXT FROM DeleteIterator INTO @IterAgentID, @IterClientID
 	   WHILE @@FETCH_STATUS = 0
 	   BEGIN
-			-- Уменьшим количество договоров агента
+			-- Decrement agent's contracts counter
 			UPDATE Agent
 			   SET NumberOfContracts = NumberOfContracts - 1
 			 WHERE AgentID = @IterAgentID
 
-			-- А теперь то же самое, но с клиентом
+			-- The same deal with client
 			UPDATE Client
 			   SET NumberOfContracts = NumberOfContracts - 1
 			 WHERE ClientID = @IterClientID
 
-			-- Переходим к следующей записи
+			-- to the next row!
 			FETCH NEXT FROM DeleteIterator INTO @IterAgentID, @IterClientID
 	   END
 	   CLOSE DeleteIterator
@@ -73,7 +72,7 @@ CREATE TRIGGER OnContractModify
 
 GO
 
-/* Триггер, запрещающий менять клиента и агента в договоре */
+/* Trigger that prohibits any modifications of existing contracts */
 
 DROP TRIGGER IF EXISTS OnContractUpdate
 
@@ -101,10 +100,10 @@ CREATE TRIGGER OnEmploymentContractModify
  BEGIN
        SET NOCOUNT ON
 
-	   -- Понадобится только идентиыикатор отделения
+	   -- We need an identifier
 	   DECLARE @IterDepartmentID INTEGER
 
-	   -- Объявим курсор-итератор
+	   -- Declare cursor for iteration
 	   DECLARE InsertIterator CURSOR FOR
 			   SELECT DepartmentID FROM INSERTED
 
@@ -112,12 +111,12 @@ CREATE TRIGGER OnEmploymentContractModify
 	   FETCH NEXT FROM InsertIterator INTO @IterDepartmentID
 	   WHILE @@FETCH_STATUS = 0
 	   BEGIN
-	        -- Обновим нужное отделение компании
+	        -- Updating corresponding department entry
 			UPDATE Department
 			   SET NumberOfEmploees = NumberOfEmploees + 1
 			 WHERE DepartmentID = @IterDepartmentID
 
-			-- Перейдем к следующему элементу
+			-- To the next element
 			FETCH NEXT FROM InsertIterator INTO @IterDepartmentID
 	   END
 	   CLOSE InsertIterator
