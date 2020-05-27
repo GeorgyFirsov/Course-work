@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# SQL Server Management Studio Solution File, Format Version 18.00
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "InsuranceDB", "InsuranceDB\InsuranceDB.ssmssqlproj", "{EC89D365-5A27-4C6A-9F4E-C38AA514C133}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Default|Default = Default|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC89D365-5A27-4C6A-9F4E-C38AA514C133}.Default|Default.ActiveCfg = Default
+		{A0EC76F8-484C-4DC0-999C-0D5AAF4453D0}.Default|Default.ActiveCfg = Default
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {29D57028-049C-4B11-B2D4-77E68478C232}
+	EndGlobalSection
+EndGlobal
