@@ -24,7 +24,7 @@ CREATE TRIGGER OnContractModify
        DECLARE InsertIterator CURSOR FOR
                SELECT AgentID, ClientID FROM INSERTED
        
-        OPEN InsertIterator
+       OPEN InsertIterator
        FETCH NEXT FROM InsertIterator INTO @IterAgentID, @IterClientID
        WHILE @@FETCH_STATUS = 0
        BEGIN
@@ -49,7 +49,7 @@ CREATE TRIGGER OnContractModify
        DECLARE DeleteIterator CURSOR FOR
                SELECT AgentID, ClientID FROM DELETED
        
-        OPEN DeleteIterator
+       OPEN DeleteIterator
        FETCH NEXT FROM DeleteIterator INTO @IterAgentID, @IterClientID
        WHILE @@FETCH_STATUS = 0
        BEGIN
@@ -107,7 +107,7 @@ CREATE TRIGGER OnEmploymentContractModify
        DECLARE InsertIterator CURSOR FOR
                SELECT DepartmentID FROM INSERTED
 
-        OPEN InsertIterator
+       OPEN InsertIterator
        FETCH NEXT FROM InsertIterator INTO @IterDepartmentID
        WHILE @@FETCH_STATUS = 0
        BEGIN
