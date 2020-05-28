@@ -45,18 +45,18 @@ UPDATE Contract
 
 SELECT 
        Agent.AgentID, 
-	   Agent.Name, 
-	   Agent.Rate, 
-	   EmploymentContract.Salary,
-	   AgentPosition.Position,
-	   Department.Address
+       Agent.Name, 
+       Agent.Rate, 
+       EmploymentContract.Salary,
+       AgentPosition.Position,
+       Department.Address
   FROM Agent
        INNER JOIN EmploymentContract
-	   ON Agent.AgentID = EmploymentContract.AgentID
+       ON Agent.AgentID = EmploymentContract.AgentID
 
-	   INNER JOIN AgentPosition
-	   ON EmploymentContract.AgentPositionID = AgentPosition.AgentPositionID
+       INNER JOIN AgentPosition
+       ON EmploymentContract.AgentPositionID = AgentPosition.AgentPositionID
 
-	   INNER JOIN Department
-	   ON Department.DepartmentID = EmploymentContract.DepartmentID
+       INNER JOIN Department
+       ON Department.DepartmentID = EmploymentContract.DepartmentID
  WHERE EmploymentContract.EndDate IS NULL

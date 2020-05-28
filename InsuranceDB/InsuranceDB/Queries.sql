@@ -10,12 +10,12 @@ USE InsuranceDB
 SELECT Client.*
   FROM Client
        INNER JOIN (
-	       SELECT Contract.ClientID
+           SELECT Contract.ClientID
              FROM Contract
          GROUP BY Contract.ClientID
            HAVING COUNT(DISTINCT Contract.ContractStatusID) = 
-	              (SELECT COUNT(DISTINCT ContractStatusID) FROM ContractStatus)
-	       ) AS Ids
+                  (SELECT COUNT(DISTINCT ContractStatusID) FROM ContractStatus)
+           ) AS Ids
        ON Client.ClientID = Ids.ClientID;
 
 
@@ -27,12 +27,12 @@ CREATE VIEW HouseFromFire AS
 SELECT Contract.*
   FROM Contract
        INNER JOIN ContractObject
-	   ON Contract.ContractObjectID = ContractObject.ContractObjectID
-	      AND ContractObject.Object = 'House'
+       ON Contract.ContractObjectID = ContractObject.ContractObjectID
+          AND ContractObject.Object = 'House'
 
        INNER JOIN ContractKind
-	   ON Contract.ContractKindID = ContractKind.ContractKindID
-	      AND ContractKind.Kind = 'Fire';
+       ON Contract.ContractKindID = ContractKind.ContractKindID
+          AND ContractKind.Kind = 'Fire';
 GO
 
 SELECT *
@@ -49,8 +49,8 @@ CREATE VIEW LifeProtect AS
 SELECT Contract.*
   FROM Contract
        INNER JOIN ContractObject
-	   ON Contract.ContractObjectID = ContractObject.ContractObjectID
-	      AND ContractObject.Object = 'Life'
+       ON Contract.ContractObjectID = ContractObject.ContractObjectID
+          AND ContractObject.Object = 'Life'
 GO
 
 SELECT *

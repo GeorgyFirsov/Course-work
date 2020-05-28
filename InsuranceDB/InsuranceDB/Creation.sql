@@ -45,7 +45,7 @@ CREATE TABLE Department (
     Address              VARCHAR(50) NOT NULL UNIQUE,
     PhoneNumber          VARCHAR(15) NOT NULL,
     DepartmentTypeID     INTEGER     NOT NULL 
-	                                 REFERENCES DepartmentType (DepartmentTypeID),
+                                     REFERENCES DepartmentType (DepartmentTypeID),
     NumberOfEmploees     INTEGER     NULL
 )
 
@@ -62,12 +62,12 @@ CREATE TABLE EmploymentContract (
     EmploymentContractID INTEGER     NOT NULL IDENTITY(1,1) PRIMARY KEY,
     Number               INTEGER     NOT NULL UNIQUE,
     AgentID              INTEGER     NOT NULL 
-	                                 REFERENCES Agent (AgentID),
+                                     REFERENCES Agent (AgentID),
     Salary               INTEGER     NOT NULL,
     AgentPositionID      INTEGER     NOT NULL 
-	                                 REFERENCES AgentPosition (AgentPositionID),
+                                     REFERENCES AgentPosition (AgentPositionID),
     DepartmentID         INTEGER     NOT NULL 
-	                                 REFERENCES Department (DepartmentID),
+                                     REFERENCES Department (DepartmentID),
     StartDate            DATE        NOT NULL,
     EndDate              DATE        NULL,
     Status               TINYINT     NOT NULL
@@ -86,17 +86,17 @@ CREATE TABLE Client (
 CREATE TABLE Contract (
     ContractID           INTEGER     NOT NULL IDENTITY(1,1) PRIMARY KEY,
     ContractKindID       INTEGER     NOT NULL 
-	                                 REFERENCES ContractKind (ContractKindID),
+                                     REFERENCES ContractKind (ContractKindID),
     ContractObjectID     INTEGER     NOT NULL 
-	                                 REFERENCES ContractObject (ContractObjectID),
+                                     REFERENCES ContractObject (ContractObjectID),
     InsuranceInterest    INTEGER     NOT NULL,
     InsuranceAmount      INTEGER     NOT NULL,
     Date                 DATE        NOT NULL,
     ValidityPeriod       INTEGER     NOT NULL,
     ContractStatusID     INTEGER     NOT NULL 
-	                                 REFERENCES ContractStatus (ContractStatusID),
+                                     REFERENCES ContractStatus (ContractStatusID),
     ClientID             INTEGER     NOT NULL 
-	                                 REFERENCES Client (ClientID),
+                                     REFERENCES Client (ClientID),
     AgentID              INTEGER     NOT NULL 
-	                                 REFERENCES Agent (AgentID)
+                                     REFERENCES Agent (AgentID)
 )

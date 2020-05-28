@@ -14,60 +14,60 @@ CREATE TRIGGER OnContractModify
     ON Contract AFTER INSERT, DELETE
     AS
  BEGIN
-	   SET NOCOUNT ON
+       SET NOCOUNT ON
 
-	   -- We need identifiers
-	   DECLARE @IterAgentID  INTEGER
-	   DECLARE @IterClientID INTEGER
-	   
-	   -- We'll iterate over all inserted rows
-	   DECLARE InsertIterator CURSOR FOR
-			   SELECT AgentID, ClientID FROM INSERTED
-	   
-	   OPEN InsertIterator
-	   FETCH NEXT FROM InsertIterator INTO @IterAgentID, @IterClientID
-	   WHILE @@FETCH_STATUS = 0
-	   BEGIN
-			-- Let's update agents table - we need to
-			-- increment contracts counter
-			UPDATE Agent
-			   SET NumberOfContracts = NumberOfContracts + 1
-			 WHERE AgentID = @IterAgentID
+       -- We need identifiers
+       DECLARE @IterAgentID  INTEGER
+       DECLARE @IterClientID INTEGER
+       
+       -- We'll iterate over all inserted rows
+       DECLARE InsertIterator CURSOR FOR
+               SELECT AgentID, ClientID FROM INSERTED
+       
+       OPEN InsertIterator
+       FETCH NEXT FROM InsertIterator INTO @IterAgentID, @IterClientID
+       WHILE @@FETCH_STATUS = 0
+       BEGIN
+            -- Let's update agents table - we need to
+            -- increment contracts counter
+            UPDATE Agent
+               SET NumberOfContracts = NumberOfContracts + 1
+             WHERE AgentID = @IterAgentID
 
-			-- Now he same deal with client
-			UPDATE Client
-			   SET NumberOfContracts = NumberOfContracts + 1
-			 WHERE ClientID = @IterClientID
+            -- Now he same deal with client
+            UPDATE Client
+               SET NumberOfContracts = NumberOfContracts + 1
+             WHERE ClientID = @IterClientID
 
-			-- And let's go to the next row
-			FETCH NEXT FROM InsertIterator INTO @IterAgentID, @IterClientID
-	   END
-	   CLOSE InsertIterator
-	   DEALLOCATE InsertIterator
+            -- And let's go to the next row
+            FETCH NEXT FROM InsertIterator INTO @IterAgentID, @IterClientID
+       END
+       CLOSE InsertIterator
+       DEALLOCATE InsertIterator
 
-	   -- Iteration over deleted rows
-	   DECLARE DeleteIterator CURSOR FOR
-			   SELECT AgentID, ClientID FROM DELETED
-	   
-	   OPEN DeleteIterator
-	   FETCH NEXT FROM DeleteIterator INTO @IterAgentID, @IterClientID
-	   WHILE @@FETCH_STATUS = 0
-	   BEGIN
-			-- Decrement agent's contracts counter
-			UPDATE Agent
-			   SET NumberOfContracts = NumberOfContracts - 1
-			 WHERE AgentID = @IterAgentID
+       -- Iteration over deleted rows
+       DECLARE DeleteIterator CURSOR FOR
+               SELECT AgentID, ClientID FROM DELETED
+       
+       OPEN DeleteIterator
+       FETCH NEXT FROM DeleteIterator INTO @IterAgentID, @IterClientID
+       WHILE @@FETCH_STATUS = 0
+       BEGIN
+            -- Decrement agent's contracts counter
+            UPDATE Agent
+               SET NumberOfContracts = NumberOfContracts - 1
+             WHERE AgentID = @IterAgentID
 
-			-- The same deal with client
-			UPDATE Client
-			   SET NumberOfContracts = NumberOfContracts - 1
-			 WHERE ClientID = @IterClientID
+            -- The same deal with client
+            UPDATE Client
+               SET NumberOfContracts = NumberOfContracts - 1
+             WHERE ClientID = @IterClientID
 
-			-- to the next row!
-			FETCH NEXT FROM DeleteIterator INTO @IterAgentID, @IterClientID
-	   END
-	   CLOSE DeleteIterator
-	   DEALLOCATE DeleteIterator
+            -- to the next row!
+            FETCH NEXT FROM DeleteIterator INTO @IterAgentID, @IterClientID
+       END
+       CLOSE DeleteIterator
+       DEALLOCATE DeleteIterator
    END
 
 GO
@@ -80,12 +80,12 @@ GO
 
 CREATE TRIGGER OnContractUpdate
     ON Contract AFTER UPDATE
-	AS 
+    AS 
  BEGIN
-	   IF ( UPDATE(AgentID) OR UPDATE(ClientID) )
-	   BEGIN
-			 ROLLBACK
-	   END
+       IF ( UPDATE(AgentID) OR UPDATE(ClientID) )
+       BEGIN
+             ROLLBACK
+       END
    END
 
 GO
@@ -96,31 +96,31 @@ GO
 
 CREATE TRIGGER OnEmploymentContractModify
     ON EmploymentContract AFTER INSERT
-	AS
+    AS
  BEGIN
-	   SET NOCOUNT ON
+       SET NOCOUNT ON
 
-	   -- We need an identifier
-	   DECLARE @IterDepartmentID INTEGER
+       -- We need an identifier
+       DECLARE @IterDepartmentID INTEGER
 
-	   -- Declare cursor for iteration
-	   DECLARE InsertIterator CURSOR FOR
-			   SELECT DepartmentID FROM INSERTED
+       -- Declare cursor for iteration
+       DECLARE InsertIterator CURSOR FOR
+               SELECT DepartmentID FROM INSERTED
 
-	   OPEN InsertIterator
-	   FETCH NEXT FROM InsertIterator INTO @IterDepartmentID
-	   WHILE @@FETCH_STATUS = 0
-	   BEGIN
-	        -- Updating corresponding department entry
-			UPDATE Department
-			   SET NumberOfEmploees = NumberOfEmploees + 1
-			 WHERE DepartmentID = @IterDepartmentID
+       OPEN InsertIterator
+       FETCH NEXT FROM InsertIterator INTO @IterDepartmentID
+       WHILE @@FETCH_STATUS = 0
+       BEGIN
+            -- Updating corresponding department entry
+            UPDATE Department
+               SET NumberOfEmploees = NumberOfEmploees + 1
+             WHERE DepartmentID = @IterDepartmentID
 
-			-- To the next element
-			FETCH NEXT FROM InsertIterator INTO @IterDepartmentID
-	   END
-	   CLOSE InsertIterator
-	   DEALLOCATE InsertIterator
+            -- To the next element
+            FETCH NEXT FROM InsertIterator INTO @IterDepartmentID
+       END
+       CLOSE InsertIterator
+       DEALLOCATE InsertIterator
    END
 
 GO
