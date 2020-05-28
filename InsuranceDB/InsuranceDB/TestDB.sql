@@ -40,3 +40,23 @@ INSERT INTO Contract(
 UPDATE Contract
    SET AgentID = 1
  WHERE ContractID = 12
+
+/* Some testing queries for report */
+
+SELECT 
+       Agent.AgentID, 
+	   Agent.Name, 
+	   Agent.Rate, 
+	   EmploymentContract.Salary,
+	   AgentPosition.Position,
+	   Department.Address
+  FROM Agent
+       INNER JOIN EmploymentContract
+	   ON Agent.AgentID = EmploymentContract.AgentID
+
+	   INNER JOIN AgentPosition
+	   ON EmploymentContract.AgentPositionID = AgentPosition.AgentPositionID
+
+	   INNER JOIN Department
+	   ON Department.DepartmentID = EmploymentContract.DepartmentID
+ WHERE EmploymentContract.EndDate IS NULL
