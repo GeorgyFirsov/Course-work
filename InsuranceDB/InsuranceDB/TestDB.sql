@@ -1,10 +1,10 @@
-/* Переключимся на нашу созданную БД */
+/* Switch to our DB */
 
 USE InsuranceDB
 
-/* Тестовые запросы */
+/* Test queries */
 
-/* Проверка наличия данных в принципе */
+/* Check if data actually exists */
 
 SELECT * FROM Agent ORDER BY AgentID
 
