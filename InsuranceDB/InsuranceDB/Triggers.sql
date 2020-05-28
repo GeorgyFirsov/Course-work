@@ -98,7 +98,7 @@ CREATE TRIGGER OnEmploymentContractModify
     ON EmploymentContract AFTER INSERT
 	AS
  BEGIN
-       SET NOCOUNT ON
+	   SET NOCOUNT ON
 
 	   -- We need an identifier
 	   DECLARE @IterDepartmentID INTEGER

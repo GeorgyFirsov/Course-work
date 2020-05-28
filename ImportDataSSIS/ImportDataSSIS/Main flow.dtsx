@@ -11,8 +11,8 @@
   DTS:LocaleID="1049"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="54"
-  DTS:VersionGUID="{EEE66E0D-2778-475F-882C-1D6C1FCBD31D}">
+  DTS:VersionBuild="56"
+  DTS:VersionGUID="{0F732B03-75E6-4489-B4D6-FB6249208461}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -691,7 +691,7 @@
                 <property
                   dataType="System.String"
                   description="Задает параметры быстрой загрузки. Применяется только в том случае, если включена быстрая загрузка."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 5,FIRE_TRIGGERS</property>
                 <property
                   dataType="System.Int32"
                   description="Задает, когда выдаются сообщения о фиксации транзакции в ходе вставки данных. Значение 0 задает, что по окончании вставки данных будет выдано одно сообщение о фиксации транзакции. Применяется только в том случае, если включена быстрая загрузка."
@@ -3085,47 +3085,13 @@
           Id="Package\Contract"
           TopLeft="362,225" />
         <NodeLayout
-          Size="204,42"
-          Id="Package\EmploymentContract"
-          TopLeft="362,174" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="362,200.666666666667">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,45.3333333333333"
-              Start="0,0"
-              End="-7.5,45.3333333333333">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-18.5,0"
-                    Point2="-22.5,0"
-                    Point3="-22.5,4" />
-                  <mssgle:LineSegment
-                    End="-22.5,41.3333333333333" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-22.5,41.3333333333333"
-                    Point2="-22.5,45.3333333333333"
-                    Point3="-18.5,45.3333333333333" />
-                  <mssgle:LineSegment
-                    End="-7.5,45.3333333333333" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
           Size="205,42"
           Id="Package\Department, Agent, Client"
           TopLeft="361,124" />
+        <NodeLayout
+          Size="204,42"
+          Id="Package\EmploymentContract"
+          TopLeft="362,174" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="361,145">
@@ -3160,6 +3126,40 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="362,200.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45.3333333333333"
+              Start="0,0"
+              End="-7.5,45.3333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,41.3333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,41.3333333333333"
+                    Point2="-22.5,45.3333333333333"
+                    Point3="-18.5,45.3333333333333" />
+                  <mssgle:LineSegment
+                    End="-7.5,45.3333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -3167,7 +3167,7 @@
     design-time-name="Package\Contract">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="135,42"
           Id="Package\Contract\Conversion"
@@ -3199,9 +3199,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3223,9 +3221,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3233,83 +3229,6 @@
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\Contract\InsuranceDB_Contract">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\EmploymentContract">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="251,42"
-          Id="Package\EmploymentContract\InsuranceDB_EmploymentContract"
-          TopLeft="337,238" />
-        <NodeLayout
-          Size="182,42"
-          Id="Package\EmploymentContract\EmploymentContract"
-          TopLeft="365,80" />
-        <NodeLayout
-          Size="131,42"
-          Id="Package\EmploymentContract\Convesion"
-          TopLeft="391,157" />
-        <EdgeLayout
-          Id="Package\EmploymentContract.Paths[Выходные данные преобразования данных]"
-          TopLeft="459.5,199">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,39"
-              Start="0,0"
-              End="0,31.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\EmploymentContract.Paths[Выход источника &quot;Неструктурированный файл&quot;]"
-          TopLeft="456.25,122">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,35"
-              Start="0,0"
-              End="0,27.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\EmploymentContract\InsuranceDB_EmploymentContract">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3509,5 +3428,86 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <TaskHost
+    design-time-name="Package\EmploymentContract">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="251,42"
+          Id="Package\EmploymentContract\InsuranceDB_EmploymentContract"
+          TopLeft="337,238" />
+        <NodeLayout
+          Size="131,42"
+          Id="Package\EmploymentContract\Convesion"
+          TopLeft="391,157" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\EmploymentContract\EmploymentContract"
+          TopLeft="365,80" />
+        <EdgeLayout
+          Id="Package\EmploymentContract.Paths[Выходные данные преобразования данных]"
+          TopLeft="459.5,199">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39"
+              Start="0,0"
+              End="0,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\EmploymentContract.Paths[Выход источника &quot;Неструктурированный файл&quot;]"
+          TopLeft="456.25,122">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35"
+              Start="0,0"
+              End="0,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\EmploymentContract\InsuranceDB_EmploymentContract">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
