@@ -11,8 +11,8 @@
   DTS:LocaleID="1049"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="56"
-  DTS:VersionGUID="{0F732B03-75E6-4489-B4D6-FB6249208461}">
+  DTS:VersionBuild="57"
+  DTS:VersionGUID="{EE4B9213-5656-4BEA-B2AD-AEB5C5F98382}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -3173,9 +3173,9 @@
           Id="Package\Contract\Conversion"
           TopLeft="340,129" />
         <NodeLayout
-          Size="121,42"
+          Size="135,42"
           Id="Package\Contract\Contract"
-          TopLeft="347,54" />
+          TopLeft="340,54" />
         <NodeLayout
           Size="190,42"
           Id="Package\Contract\InsuranceDB_Contract"
@@ -3244,7 +3244,7 @@
     design-time-name="Package\Department, Agent, Client">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="146,42"
           Id="Package\Department, Agent, Client\Client"
@@ -3264,7 +3264,7 @@
         <NodeLayout
           Size="206,42"
           Id="Package\Department, Agent, Client\InsuranceDB_Department"
-          TopLeft="469,169" />
+          TopLeft="469,168" />
         <NodeLayout
           Size="147,42"
           Id="Package\Department, Agent, Client\Conversion_2"
@@ -3274,35 +3274,33 @@
           Id="Package\Department, Agent, Client\InsuranceDB_Client"
           TopLeft="31,167" />
         <NodeLayout
-          Size="136,42"
+          Size="145,42"
           Id="Package\Department, Agent, Client\Department"
-          TopLeft="504,23" />
+          TopLeft="500,23" />
         <NodeLayout
-          Size="144,42"
+          Size="147,42"
           Id="Package\Department, Agent, Client\Agent"
-          TopLeft="267,21" />
+          TopLeft="261,21" />
         <EdgeLayout
           Id="Package\Department, Agent, Client.Paths[Выходные данные преобразования данных2]"
           TopLeft="572.25,134">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,35"
+              EndConnector="0,34"
               Start="0,0"
-              End="0,27.5">
+              End="0,26.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.5" />
+                    End="0,26.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3324,9 +3322,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3348,14 +3344,12 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Department, Agent, Client.Paths[Выход источника &quot;Неструктурированный файл&quot;2]"
-          TopLeft="572.25,65">
+          TopLeft="572.5,65">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3372,9 +3366,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3396,14 +3388,12 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Department, Agent, Client.Paths[Выход источника &quot;Неструктурированный файл&quot;]"
-          TopLeft="336.75,63">
+          TopLeft="334.5,63">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3420,9 +3410,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3432,22 +3420,22 @@
     design-time-name="Package\EmploymentContract">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="251,42"
           Id="Package\EmploymentContract\InsuranceDB_EmploymentContract"
-          TopLeft="337,238" />
+          TopLeft="331,238" />
         <NodeLayout
-          Size="131,42"
+          Size="179,42"
           Id="Package\EmploymentContract\Convesion"
-          TopLeft="391,157" />
+          TopLeft="367,157" />
         <NodeLayout
           Size="182,42"
           Id="Package\EmploymentContract\EmploymentContract"
           TopLeft="365,80" />
         <EdgeLayout
           Id="Package\EmploymentContract.Paths[Выходные данные преобразования данных]"
-          TopLeft="459.5,199">
+          TopLeft="456.5,199">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3464,9 +3452,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3488,9 +3474,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
