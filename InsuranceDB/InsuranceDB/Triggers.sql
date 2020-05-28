@@ -24,23 +24,23 @@ CREATE TRIGGER OnContractModify
        DECLARE InsertIterator CURSOR FOR
                SELECT AgentID, ClientID FROM INSERTED
        
-       OPEN InsertIterator
+        OPEN InsertIterator
        FETCH NEXT FROM InsertIterator INTO @IterAgentID, @IterClientID
        WHILE @@FETCH_STATUS = 0
        BEGIN
-            -- Let's update agents table - we need to
-            -- increment contracts counter
-            UPDATE Agent
-               SET NumberOfContracts = NumberOfContracts + 1
-             WHERE AgentID = @IterAgentID
+             -- Let's update agents table - we need to
+             -- increment contracts counter
+             UPDATE Agent
+                SET NumberOfContracts = NumberOfContracts + 1
+              WHERE AgentID = @IterAgentID
 
-            -- Now he same deal with client
-            UPDATE Client
-               SET NumberOfContracts = NumberOfContracts + 1
-             WHERE ClientID = @IterClientID
+             -- Now he same deal with client
+             UPDATE Client
+                SET NumberOfContracts = NumberOfContracts + 1
+              WHERE ClientID = @IterClientID
 
-            -- And let's go to the next row
-            FETCH NEXT FROM InsertIterator INTO @IterAgentID, @IterClientID
+             -- And let's go to the next row
+             FETCH NEXT FROM InsertIterator INTO @IterAgentID, @IterClientID
        END
        CLOSE InsertIterator
        DEALLOCATE InsertIterator
@@ -49,22 +49,22 @@ CREATE TRIGGER OnContractModify
        DECLARE DeleteIterator CURSOR FOR
                SELECT AgentID, ClientID FROM DELETED
        
-       OPEN DeleteIterator
+        OPEN DeleteIterator
        FETCH NEXT FROM DeleteIterator INTO @IterAgentID, @IterClientID
        WHILE @@FETCH_STATUS = 0
        BEGIN
-            -- Decrement agent's contracts counter
-            UPDATE Agent
-               SET NumberOfContracts = NumberOfContracts - 1
-             WHERE AgentID = @IterAgentID
+             -- Decrement agent's contracts counter
+             UPDATE Agent
+                SET NumberOfContracts = NumberOfContracts - 1
+              WHERE AgentID = @IterAgentID
 
-            -- The same deal with client
-            UPDATE Client
-               SET NumberOfContracts = NumberOfContracts - 1
-             WHERE ClientID = @IterClientID
+             -- The same deal with client
+             UPDATE Client
+                SET NumberOfContracts = NumberOfContracts - 1
+              WHERE ClientID = @IterClientID
 
-            -- to the next row!
-            FETCH NEXT FROM DeleteIterator INTO @IterAgentID, @IterClientID
+             -- to the next row!
+             FETCH NEXT FROM DeleteIterator INTO @IterAgentID, @IterClientID
        END
        CLOSE DeleteIterator
        DEALLOCATE DeleteIterator
@@ -107,17 +107,17 @@ CREATE TRIGGER OnEmploymentContractModify
        DECLARE InsertIterator CURSOR FOR
                SELECT DepartmentID FROM INSERTED
 
-       OPEN InsertIterator
+        OPEN InsertIterator
        FETCH NEXT FROM InsertIterator INTO @IterDepartmentID
        WHILE @@FETCH_STATUS = 0
        BEGIN
-            -- Updating corresponding department entry
-            UPDATE Department
-               SET NumberOfEmploees = NumberOfEmploees + 1
-             WHERE DepartmentID = @IterDepartmentID
+             -- Updating corresponding department entry
+             UPDATE Department
+                SET NumberOfEmploees = NumberOfEmploees + 1
+              WHERE DepartmentID = @IterDepartmentID
 
-            -- To the next element
-            FETCH NEXT FROM InsertIterator INTO @IterDepartmentID
+             -- To the next element
+             FETCH NEXT FROM InsertIterator INTO @IterDepartmentID
        END
        CLOSE InsertIterator
        DEALLOCATE InsertIterator
