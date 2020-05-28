@@ -3,6 +3,7 @@
   <ConnectionProperties>
     <Extension>SQL</Extension>
     <ConnectString>Data Source=localhost;Initial Catalog=InsuranceDB</ConnectString>
+    <IntegratedSecurity>true</IntegratedSecurity>
   </ConnectionProperties>
-  <DataSourceID>99f51370-c202-4201-9166-b0755b99690b</DataSourceID>
+  <DataSourceID>c15d5f89-2272-4d35-8e6d-34ae84c478ed</DataSourceID>
 </RptDataSource>
