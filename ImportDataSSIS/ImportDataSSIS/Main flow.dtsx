@@ -11,68 +11,10 @@
   DTS:LocaleID="1049"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="58"
-  DTS:VersionGUID="{63F87FF8-FE75-44CF-8A01-0751264C9CA7}">
+  DTS:VersionBuild="59"
+  DTS:VersionGUID="{397AACEA-20BF-4DE1-9E3C-9ECA382AF7BE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Department]"
-      DTS:CreationName="FLATFILE"
-      DTS:DTSID="{58E23C6D-5CC5-4E51-B330-89BB7F8DE679}"
-      DTS:ObjectName="Department">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:Format="Delimited"
-          DTS:LocaleID="1049"
-          DTS:HeaderRowDelimiter="_x000D__x000A_"
-          DTS:ColumnNamesInFirstDataRow="True"
-          DTS:RowDelimiter=""
-          DTS:TextQualifier="_x003C_none_x003E_"
-          DTS:CodePage="1251"
-          DTS:ConnectionString="E:\Учеба\Базы данных\Курсач\TablesExcel\Department.csv">
-          <DTS:FlatFileColumns>
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Address"
-              DTS:DTSID="{2A2F8C1E-93E5-45B0-9937-0E95883E586A}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="PhoneNumber"
-              DTS:DTSID="{CBC84AB3-3478-4225-B2E4-3BDD8F634184}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="DepartmentTypeID"
-              DTS:DTSID="{E8C755A4-F207-4F65-BF47-4D0AC86307F4}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x000D__x000A_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="NumberOfEmployees"
-              DTS:DTSID="{4B6EEED4-2F0D-4DA8-8531-D25058ADA850}"
-              DTS:CreationName="" />
-          </DTS:FlatFileColumns>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-  </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -1698,8 +1640,8 @@
               <connections>
                 <connection
                   refId="Package\Department, Agent, Client\Department.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Department]"
-                  connectionManagerRefId="Package.ConnectionManagers[Department]"
+                  connectionManagerID="{58E23C6D-5CC5-4E51-B330-89BB7F8DE679}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Department]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
