@@ -55,7 +55,7 @@ INSERT INTO ContractStatus (Status)
 
 -- Department --------------------
 
-INSERT INTO Department (Address, PhoneNumber, DepartmentTypeID, NumberOfEmploees)
+INSERT INTO Department (Address, PhoneNumber, DepartmentTypeID, NumberOfEmployees)
      VALUES ('31 Littleton Ave. New Lenox', '1(202)2091761', 1, 2),
             ('713 Rose Street Blacksburg',  '1(202)2277293', 2, 2),
             ('993 8th Ave. Evansville',     '1(202)7164388', 3, 1);

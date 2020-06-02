@@ -113,7 +113,7 @@ CREATE TRIGGER OnEmploymentContractModify
        BEGIN
              -- Updating corresponding department entry
              UPDATE Department
-                SET NumberOfEmploees = NumberOfEmploees + 1
+                SET NumberOfEmployees = NumberOfEmployees + 1
               WHERE DepartmentID = @IterDepartmentID
 
              -- To the next element

@@ -10,7 +10,7 @@ This project contains a DB for abstract insurance company. Here is a diagram of 
 
 [![](./Model/Logical.png)]()
 
-This cource project also contains a SSIS package for data import. Data is generated randomly in [generation script](GenerateData.ipynb), that is made as a notebook for jupyter in order to make it more visually pleasant. 
+This cource project also contains a SSIS package for data import. Data is generated randomly in generation script (folder DataGeneration). 
 
 I also made a report with SSRS.
 

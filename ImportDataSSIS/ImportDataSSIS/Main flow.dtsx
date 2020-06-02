@@ -11,10 +11,68 @@
   DTS:LocaleID="1049"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="57"
-  DTS:VersionGUID="{EE4B9213-5656-4BEA-B2AD-AEB5C5F98382}">
+  DTS:VersionBuild="58"
+  DTS:VersionGUID="{63F87FF8-FE75-44CF-8A01-0751264C9CA7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Department]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{58E23C6D-5CC5-4E51-B330-89BB7F8DE679}"
+      DTS:ObjectName="Department">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1049"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1251"
+          DTS:ConnectionString="E:\Учеба\Базы данных\Курсач\TablesExcel\Department.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Address"
+              DTS:DTSID="{2A2F8C1E-93E5-45B0-9937-0E95883E586A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PhoneNumber"
+              DTS:DTSID="{CBC84AB3-3478-4225-B2E4-3BDD8F634184}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DepartmentTypeID"
+              DTS:DTSID="{E8C755A4-F207-4F65-BF47-4D0AC86307F4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NumberOfEmployees"
+              DTS:DTSID="{4B6EEED4-2F0D-4DA8-8531-D25058ADA850}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -1534,12 +1592,12 @@
                       cachedName="DepartmentTypeID"
                       lineageId="Package\Department, Agent, Client\Department.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DepartmentTypeID]" />
                     <inputColumn
-                      refId="Package\Department, Agent, Client\Conversion_2.Inputs[Входные данные преобразования данных].Columns[NumberOfEmploees]"
+                      refId="Package\Department, Agent, Client\Conversion_2.Inputs[Входные данные преобразования данных].Columns[NumberOfEmployees]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
-                      cachedName="NumberOfEmploees"
-                      lineageId="Package\Department, Agent, Client\Department.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[NumberOfEmploees]" />
+                      cachedName="NumberOfEmployees"
+                      lineageId="Package\Department, Agent, Client\Department.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[NumberOfEmployees]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1572,19 +1630,19 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Department, Agent, Client\Conversion_2.Outputs[Выходные данные преобразования данных].Columns[NumberOfEmploeesNum]"
+                      refId="Package\Department, Agent, Client\Conversion_2.Outputs[Выходные данные преобразования данных].Columns[NumberOfEmployeesNum]"
                       dataType="i4"
                       errorOrTruncationOperation="Преобразование"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Department, Agent, Client\Conversion_2.Outputs[Выходные данные преобразования данных].Columns[NumberOfEmploeesNum]"
-                      name="NumberOfEmploeesNum"
+                      lineageId="Package\Department, Agent, Client\Conversion_2.Outputs[Выходные данные преобразования данных].Columns[NumberOfEmployeesNum]"
+                      name="NumberOfEmployeesNum"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Указывает входной столбец, служащий источником данных для преобразования."
-                          name="SourceInputColumnLineageID">#{Package\Department, Agent, Client\Department.Outputs[Выход источника "Неструктурированный файл"].Columns[NumberOfEmploees]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Department, Agent, Client\Department.Outputs[Выход источника "Неструктурированный файл"].Columns[NumberOfEmployees]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Указывает, используются ли в столбце более производительные, не зависящие от локалей процедуры синтаксического анализа."
@@ -1640,8 +1698,8 @@
               <connections>
                 <connection
                   refId="Package\Department, Agent, Client\Department.Connections[FlatFileConnection]"
-                  connectionManagerID="{B1AA0420-B0D6-493E-B377-8CD4D2CBE5CF}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Department]"
+                  connectionManagerID="Package.ConnectionManagers[Department]"
+                  connectionManagerRefId="Package.ConnectionManagers[Department]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
@@ -1716,15 +1774,15 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Department, Agent, Client\Department.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[NumberOfEmploees]"
+                      refId="Package\Department, Agent, Client\Department.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[NumberOfEmployees]"
                       codePage="1251"
                       dataType="str"
                       errorOrTruncationOperation="Преобразование"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Department, Agent, Client\Department.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[NumberOfEmploees]"
+                      externalMetadataColumnId="Package\Department, Agent, Client\Department.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[NumberOfEmployees]"
                       length="50"
-                      lineageId="Package\Department, Agent, Client\Department.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[NumberOfEmploees]"
-                      name="NumberOfEmploees"
+                      lineageId="Package\Department, Agent, Client\Department.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[NumberOfEmployees]"
+                      name="NumberOfEmployees"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -1759,11 +1817,11 @@
                       length="50"
                       name="DepartmentTypeID" />
                     <externalMetadataColumn
-                      refId="Package\Department, Agent, Client\Department.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[NumberOfEmploees]"
+                      refId="Package\Department, Agent, Client\Department.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[NumberOfEmployees]"
                       codePage="1251"
                       dataType="str"
                       length="50"
-                      name="NumberOfEmploees" />
+                      name="NumberOfEmployees" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -2236,17 +2294,17 @@
                       externalMetadataColumnId="Package\Department, Agent, Client\InsuranceDB_Department.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[PhoneNumber]"
                       lineageId="Package\Department, Agent, Client\Department.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[PhoneNumber]" />
                     <inputColumn
-                      refId="Package\Department, Agent, Client\InsuranceDB_Department.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[NumberOfEmploeesNum]"
-                      cachedDataType="i4"
-                      cachedName="NumberOfEmploeesNum"
-                      externalMetadataColumnId="Package\Department, Agent, Client\InsuranceDB_Department.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[NumberOfEmploees]"
-                      lineageId="Package\Department, Agent, Client\Conversion_2.Outputs[Выходные данные преобразования данных].Columns[NumberOfEmploeesNum]" />
-                    <inputColumn
                       refId="Package\Department, Agent, Client\InsuranceDB_Department.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DepartmentTypeIDNum]"
                       cachedDataType="i4"
                       cachedName="DepartmentTypeIDNum"
                       externalMetadataColumnId="Package\Department, Agent, Client\InsuranceDB_Department.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DepartmentTypeID]"
                       lineageId="Package\Department, Agent, Client\Conversion_2.Outputs[Выходные данные преобразования данных].Columns[DepartmentTypeIDNum]" />
+                    <inputColumn
+                      refId="Package\Department, Agent, Client\InsuranceDB_Department.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[NumberOfEmployeesNum]"
+                      cachedDataType="i4"
+                      cachedName="NumberOfEmployeesNum"
+                      externalMetadataColumnId="Package\Department, Agent, Client\InsuranceDB_Department.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[NumberOfEmployees]"
+                      lineageId="Package\Department, Agent, Client\Conversion_2.Outputs[Выходные данные преобразования данных].Columns[NumberOfEmployeesNum]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2271,9 +2329,9 @@
                       dataType="i4"
                       name="DepartmentTypeID" />
                     <externalMetadataColumn
-                      refId="Package\Department, Agent, Client\InsuranceDB_Department.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[NumberOfEmploees]"
+                      refId="Package\Department, Agent, Client\InsuranceDB_Department.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[NumberOfEmployees]"
                       dataType="i4"
-                      name="NumberOfEmploees" />
+                      name="NumberOfEmployees" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -3416,6 +3474,19 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Department, Agent, Client\InsuranceDB_Department">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\EmploymentContract">
     <LayoutInfo>

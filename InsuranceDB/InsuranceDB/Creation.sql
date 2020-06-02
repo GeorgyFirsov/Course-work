@@ -46,7 +46,7 @@ CREATE TABLE Department (
     PhoneNumber          VARCHAR(15) NOT NULL,
     DepartmentTypeID     INTEGER     NOT NULL 
                                      REFERENCES DepartmentType (DepartmentTypeID),
-    NumberOfEmploees     INTEGER     NULL
+    NumberOfEmployees    INTEGER     NULL
 )
 
 CREATE TABLE Agent (
