@@ -19,4 +19,4 @@ I also made a report with SSRS.
 - MS SQL Server
 - MS SSIS
 - MS SSRS
-- jupyter notebook
+- Python
